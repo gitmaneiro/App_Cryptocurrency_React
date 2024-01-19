@@ -102,7 +102,7 @@ const CoinInfo =({coin})=>{
                     )
                 }
 
-                    <Box sx={{display:'flex', marginTop:5, width:'75%', justifyContent:'space-around'}}>
+                    <Box sx={{display:'flex', marginTop:2, width:'75%', justifyContent:'space-around'}}>
                         { chartDays.map(day=>(
                             <Button variant='outlined' key={day.value} onClick={()=>{setDays(day.value)}} selected={day.value===days} sx={{marginLeft:5}}>{day.label}</Button>
                         ))

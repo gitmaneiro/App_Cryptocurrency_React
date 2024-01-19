@@ -2,10 +2,12 @@ import { AppBar, Container, MenuItem, Select, ThemeProvider, Toolbar, Typography
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CryptoContext } from "../context/cryptoContext";
+import AuthModal from "./Authentication/AuthModal";
+import UserSidebar from "./Authentication/UserSidebar";
 
 const Header =()=>{
 
-    const{currency, setCurrency}=useContext(CryptoContext);
+    const{currency, setCurrency, user}=useContext(CryptoContext);
 
     console.log(currency);
     const history= useNavigate();
@@ -31,6 +33,7 @@ const Header =()=>{
                         <MenuItem value={'usd'}>USD</MenuItem>
                         <MenuItem value={'eur'}>EUR</MenuItem>
                     </Select>
+                    {user? <UserSidebar/> :<AuthModal/>}
                 </Toolbar>
             </Container>
         </AppBar>

@@ -1,33 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
-import { CoinList } from "../config/api";
-import axios from "axios";
+
 import { CryptoContext } from "../context/cryptoContext";
-///import { ThemeProvider} from "@emotion/react";
 import { Container, LinearProgress, TableCell, TableContainer, Table, TableHead, TableRow, TextField, Typography, createTheme, TableBody, Pagination, ThemeProvider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 
 const TableCoins =()=>{
 
-    const [coins, setCoins]=useState([]);
-    const [loading, setLoading]=useState(false);
     const [search, setSearch]= useState('');
     const [page, setPage]= useState(1);
 
-    const{currency, symbol}=useContext(CryptoContext);
+    const{currency, symbol, showData, coins, loading }=useContext(CryptoContext);
     const navigate= useNavigate();
 
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       }
 
-    const showData= async ()=>{
-        setLoading(true);
-        const data= await axios.get(CoinList(currency));
-        console.log(data.data)
-        setCoins(data.data)
-        setLoading(false);
-    }
+
 
     console.log(coins);
     useEffect(()=>{

@@ -3,8 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import Homepage from './Pages/Homepage';
 import Coinpages from './Pages/Coinpages';
-///import { css } from '@emotion/react';
 import Box from '@mui/material/Box';
+import Alertt from './components/Banner/Alert';
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
               <Route path='/coin/:id' element={<Coinpages/>} />
             </Routes>
         </Box>
+        <Alertt/>
     </BrowserRouter>
   );
 }
